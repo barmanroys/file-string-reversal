@@ -1,4 +1,6 @@
 .vscode/**
 **.out 
 data/out_file.txt
-
+**.lock 
+**/.idea/**
+**__pycache__/

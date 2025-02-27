@@ -1,0 +1,6 @@
+[project]
+name = "string-reversal"
+version = "0.1.0"
+description = "Python implementation of reversing the strings from a file and dumping in another file"
+requires-python = ">=3.13"
+dependencies = []

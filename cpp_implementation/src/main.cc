@@ -190,7 +190,7 @@ class Main{
 int main(int argc, char *argv[])
 {
   // Define the input and output file paths
-  std::string const in_file_path{"../data/in_file.txt"}, out_file_path{"../data/out_file.txt"};
+  std::string const in_file_path{"../../data/in_file.txt"}, out_file_path{"../../data/out_file.txt"};
   std::unique_ptr<IOHandler> handler = std::make_unique<IOHandler>(
     std::make_unique<FDWithContext>(in_file_path, std::ios::in).release(),
     std::make_unique<FDWithContext>(out_file_path, std::ios::in | std::ios::out | std::ios::app).release()
