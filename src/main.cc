@@ -191,9 +191,11 @@ int main(int argc, char *argv[])
 {
   // Define the input and output file paths
   std::string const in_file_path{"../data/in_file.txt"}, out_file_path{"../data/out_file.txt"};
-  IOHandler *handler = new IOHandler(new FDWithContext(in_file_path, std::ios::in), 
-    new FDWithContext(out_file_path, std::ios::in | std::ios::out | std::ios::app));
-  Main job_runner=Main(handler);
+  std::unique_ptr<IOHandler> handler = std::make_unique<IOHandler>(
+    std::make_unique<FDWithContext>(in_file_path, std::ios::in).release(),
+    std::make_unique<FDWithContext>(out_file_path, std::ios::in | std::ios::out | std::ios::app).release()
+);
+  auto job_runner{Main(handler.get())};
   job_runner.run(); // Run the jobs on the input and output paths. 
   return EXIT_SUCCESS;
 }
